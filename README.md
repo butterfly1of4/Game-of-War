@@ -2,7 +2,6 @@
 
 A 2 player card game using all 52 cards. Each player gets half the deck. The players flip cards simulatneously and compare numbers. Highest number wins. If Player 1 & Player 2's numbers match, War is declared. For war, each player deals three cards down and one card up. The higher number of the overtuned cards wins. In the event of a tie, the next card is flipped, and so on until there is a winner. Winner takes all the cards and adds them to the bottom of their deck. 
 
-## When game is started
 ``` 
 startGame() return Boolean 
 
