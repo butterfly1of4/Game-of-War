@@ -2,6 +2,9 @@
 
 A 2 player card game using all 52 cards. Each player gets half the deck. The players flip cards simulatneously and compare numbers. Highest number wins. If Player 1 & Player 2's numbers match, War is declared. For war, each player deals three cards down and one card up. The higher number of the overtuned cards wins. In the event of a tie, the next card is flipped, and so on until there is a winner. Winner takes all the cards and adds them to the bottom of their deck. 
 
+##Start game
+-open [https://github.com/butterfly1of4/Game-of-War/blob/master/index.html]: https://github.com/butterfly1of4/Game-of-War/blob/master/index.html
+
 ``` 
 startGame() return Boolean 
 
@@ -9,32 +12,25 @@ startGame() return Boolean
 
 ##Create Deck:
 
-```const Deck = {
-    suit: "Clubs", "Hearts", "Diamonds", "Spades" //Strings
-    value: Number
-    position:Number
-    color: "red", "black"
-}```
+```const Deck = []```,
 
 ##Declare players:
 - create 2 players
 ```
 const player = {
-    Deck= Number
-    listOfCards = [];
+    Deck= []
+}```
+```setPlayers()```
 
-}
-setPlayers()```
-
-Shuffle:
+##Shuffle:
 
 ```shuffle()```
 
-Deal
+##Deal
 ```deal()```
 26 cards to each player
 
-Play:
+##Play:
 ```playHand()```=
 ```flipCards()```
 -players flip the first card from hand
