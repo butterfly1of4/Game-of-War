@@ -1,13 +1,10 @@
 console.log("i'm connective");
 //Players
-const player1 = {hand: []};
-const player2 = {hand: []};
-let testArr = [
-  { one: "one" },
-  { two: "two" },
-  { potato: "potato" },
-  { sunday: "Sunday" },
-];
+const player1 = {hand: [], collectCards: function() {player1.hand.push()}
+};
+const player2 = {hand: [], collectCards: function() {player2.hand.push()}
+};
+//let testArr = [{ one: "one" },{ two: "two" },{ potato: "potato" },{ sunday: "Sunday" }];
 //Cards/deck
 const suits = ["Hearts", "Clubs", "Spades", "Diamonds"];
 const cards = [
@@ -89,12 +86,20 @@ console.log(arena)
 //Compare cards
 function compareCards(){
   if (arena[0].value > arena[1].value) {
+    player1.collectCards()
     console.log("Player 1 wins")
   } else if(arena[0].value < arena[1].value){
-    console.log("Player 2 wins");
+    player2.collectCards()
+    console.log("Player 2 wins")
   } else if(arena[0].value == arena[1].value){
-    console.log("We have a war")
+    //console.log("We have a war")
+    return "To the arena"
   }
-  
+  console.log(player2.hand, player1.hand)
 }
 compareCards()
+
+console.log(arena, player2, player1)
+function pickUp(params) {
+  
+}
