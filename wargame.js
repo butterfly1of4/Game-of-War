@@ -72,18 +72,29 @@ for (let i = 26; i < 52; i++) {
   player2.hand.push(deck[i]);
 } 
 console.log(player2.hand);
+console.log(player2.hand)
+
 
 //Play a hand
 function playCard(card1){
-  let x = card1.shift()
+  let x = card1.shift(0)
   arena.push(x)
-  //console.log(card1)
+  return arena
  }
 playCard(player1.hand)
 playCard(player2.hand)
 console.log(arena)
 
+
 //Compare cards
-function compareCards(arena){
-  if ()
+function compareCards(){
+  if (arena[0].value > arena[1].value) {
+    console.log("Player 1 wins")
+  } else if(arena[0].value < arena[1].value){
+    console.log("Player 2 wins");
+  } else if(arena[0].value == arena[1].value){
+    console.log("We have a war")
+  }
+  
 }
+compareCards()
