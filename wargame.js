@@ -1,7 +1,7 @@
 console.log("i'm connective");
 //Players
-const player1 = { hand: [] };
-const player2 = { hand: [] };
+const player1 = {hand: []};
+const player2 = {hand: []};
 let testArr = [
   { one: "one" },
   { two: "two" },
@@ -29,8 +29,7 @@ const value = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 const deck = [];
 let card = {};
 let shuffledDDeck = [];
-
-//test variables
+let arena = []
 
 //Create deck
 function createDeck() {
@@ -73,3 +72,18 @@ for (let i = 26; i < 52; i++) {
   player2.hand.push(deck[i]);
 } 
 console.log(player2.hand);
+
+//Play a hand
+function playCard(card1){
+  let x = card1.shift()
+  arena.push(x)
+  //console.log(card1)
+ }
+playCard(player1.hand)
+playCard(player2.hand)
+console.log(arena)
+
+//Compare cards
+function compareCards(arena){
+  if ()
+}
