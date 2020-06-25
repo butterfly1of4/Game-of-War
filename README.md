@@ -12,13 +12,13 @@ startGame() return Boolean
 
 ##Create Deck:
 
-```const Deck = []```,
+```const Deck = []```, 
 
 ##Declare players:
 - create 2 players
 ```
 const player = {
-    Deck= []
+    hand= []
 }```
 ```setPlayers()```
 
