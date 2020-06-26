@@ -110,7 +110,7 @@ arena[1]== arena[0]
 function cardsDownWar(card2){
   let y = card2.splice(0,3)
   console.log(y, card2)
-  battleReserve.push(y)
+  battleReserve.push(...y)
   return battleReserve
   }
 
@@ -127,19 +127,20 @@ function cardsDownWar(card2){
   cardsUpWar(player2.hand)
   
  
-
 //Play war
 function battlefieldWar(){
   if (battlefield[0].value > battlefield[1].value){
     console.log("The war is over. Player 1 wins")
     console.log(battlefield[0], battlefield[1])
-    player1.hand.push(battlefield)
-    player1.hand.push(battleReserve)
+    player1.hand.push(...battlefield)
+    player1.hand.push(...battleReserve)
     console.log(player1.hand, player2.hand)
   } else if (battlefield[0].value < battlefield[1].value){
-    player2.hand.push(battlefield)
-    player2.hand.push(battleReserve)
     console.log("The war is over. Player 2 wins")
+    console.log(battlefield[0], battlefield[1])
+    player2.hand.push(...battlefield)
+    player2.hand.push(...battleReserve)
+    console.log(player1.hand, player2.hand)
   } else if (battlefield[0].value== battlefield[1].value){
     reserveWar()
   }
