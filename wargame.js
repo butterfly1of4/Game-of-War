@@ -101,8 +101,6 @@ function compareCards(){
   console.log(player2.hand, player1.hand)
 }
 compareCards()
-
-
   }}*/
 
 arena[1]== arena[0]
@@ -110,37 +108,47 @@ arena[1]== arena[0]
 //WAR
 //Deal war cards
 function cardsDownWar(card2){
-  let y = card2.slice(0,3)
+  let y = card2.splice(0,3)
+  console.log(y, card2)
   battleReserve.push(y)
+  return battleReserve
   }
 
   function cardsUpWar(card3) {
     let y = card3.shift()
-    battlefield.push(y);
-    battlefield.length
+    console.log(y, card3)
+    battlefield.push(y)
+    return battlefield
   }
-  console.log(battleReserve)
-  console.log(battlefield)
   cardsDownWar(player2.hand)
   cardsDownWar(player1.hand)
-  //console.log(battlefield, player1.hand, player2.hand)
+ 
   cardsUpWar(player1.hand)
   cardsUpWar(player2.hand)
- // console.log(battlefield, player1.hand, player2.hand)
+  
+ 
 
 //Play war
-function playWar(){
-  if (battlefield[0] > battlefield[1]){
+function battlefieldWar(){
+  if (battlefield[0].value > battlefield[1].value){
+    console.log("The war is over. Player 1 wins")
+    console.log(battlefield[0], battlefield[1])
     player1.hand.push(battlefield)
     player1.hand.push(battleReserve)
-    console.log("The war is over. Player 1 wins")
-  } else if (battlefield[0] < battlefield[1]){
+    console.log(player1.hand, player2.hand)
+  } else if (battlefield[0].value < battlefield[1].value){
     player2.hand.push(battlefield)
     player2.hand.push(battleReserve)
     console.log("The war is over. Player 2 wins")
-  } else if (battlefield[0]== battlefield[1]){
-    
+  } else if (battlefield[0].value== battlefield[1].value){
+    reserveWar()
   }
+}
+battlefieldWar()
+
+//Reserve card war
+function reserveWar(){
+
 }
 
   function gameOver(hand1,hand2) {
