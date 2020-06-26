@@ -44,6 +44,7 @@ function createDeck() {
     }
   }
   console.log(deck);
+  console.log("I'm the deck")
   return deck;
 }
 
@@ -107,6 +108,7 @@ compareCards()
 arena[1]== arena[0]
 
 //WAR
+//Deal war cards
 function cardsDownWar(card2){
   let y = card2.slice(0,3)
   battleReserve.push(y)
@@ -117,13 +119,29 @@ function cardsDownWar(card2){
     battlefield.push(y);
     battlefield.length
   }
+  console.log(battleReserve)
   console.log(battlefield)
   cardsDownWar(player2.hand)
-  cardsDownWar(player2.hand)
+  cardsDownWar(player1.hand)
   //console.log(battlefield, player1.hand, player2.hand)
   cardsUpWar(player1.hand)
-  //cardsUpWar(player2.hand)
+  cardsUpWar(player2.hand)
  // console.log(battlefield, player1.hand, player2.hand)
+
+//Play war
+function playWar(){
+  if (battlefield[0] > battlefield[1]){
+    player1.hand.push(battlefield)
+    player1.hand.push(battleReserve)
+    console.log("The war is over. Player 1 wins")
+  } else if (battlefield[0] < battlefield[1]){
+    player2.hand.push(battlefield)
+    player2.hand.push(battleReserve)
+    console.log("The war is over. Player 2 wins")
+  } else if (battlefield[0]== battlefield[1]){
+    
+  }
+}
 
   function gameOver(hand1,hand2) {
     if (player1.hand == 0) {
