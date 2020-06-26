@@ -26,8 +26,10 @@ const value = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 const deck = [];
 let card = {};
 let shuffledDDeck = [];
-let arena = []
-let battlefield = [[],[]]
+let arena = [];
+let battlefield = [];
+let battleReserve = [];
+//let battlefield = [[],[]]
 
 //Create deck
 function createDeck() {
@@ -99,29 +101,29 @@ function compareCards(){
 }
 compareCards()
 
-class War {
-  constructor(field) {
-    this.battlefield = battlefield
-  }
-  dealWar() {
+
   }}*/
+
 arena[1]== arena[0]
+
 //WAR
 function cardsDownWar(card2){
-  let y = card2.shift()
-  battlefield[1].push(y)
+  let y = card2.slice(0,3)
+  battleReserve.push(y)
   }
 
   function cardsUpWar(card3) {
     let y = card3.shift()
-    battlefield[0].push(y);
+    battlefield.push(y);
+    battlefield.length
   }
-
+  console.log(battlefield)
   cardsDownWar(player2.hand)
   cardsDownWar(player2.hand)
+  //console.log(battlefield, player1.hand, player2.hand)
   cardsUpWar(player1.hand)
-  cardsUpWar(player2.hand)
-  console.log(battlefield, player1.hand, player2.hand)
+  //cardsUpWar(player2.hand)
+ // console.log(battlefield, player1.hand, player2.hand)
 
   function gameOver(hand1,hand2) {
     if (player1.hand == 0) {
@@ -129,6 +131,15 @@ function cardsDownWar(card2){
     } else if (player2.hand == 0){
       console.log("Game over. Player 1 wins")
     } else {
-      
+      playCard(player1.hand)
+      playCard(player2.hand)
+    }
+  }
+
+  function playAgain() {
+    if (input='yes'){
+      createDeck()
+    } else {
+      console.log("Thanks for playing")
     }
   }
