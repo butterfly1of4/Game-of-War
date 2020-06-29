@@ -51,7 +51,7 @@ function createDeck() {
   console.log("I'm the deck");
   return deck;
 }
-createDeck();
+//createDeck();
 
 //Shuffle
 function shuffle(deck) {
@@ -63,15 +63,16 @@ function shuffle(deck) {
   }
   return deck;
 }
-shuffle(deck);
+//shuffle(deck);
 
 //Deal
+/*
 for (let i = 0; i < 26; i++) {
   player1.hand.push(deck[i]);
 }
 for (let i = 26; i < 52; i++) {
   player2.hand.push(deck[i]);
-}
+}*/
 //console.log(player1.hand);
 //console.log(player2.hand)
 //Loop
@@ -82,52 +83,62 @@ function playCard(card1) {
   arena.push(x);
   return arena;
 }
-playCard(player1.hand);
-//console.log(player1.hand)
-playCard(player2.hand);
-//console.log(player2.hand)
-console.log(arena, player1.hand, player2.hand);
 
 //Compare cards
 function compareCards() {
   if (arena[0].value > arena[1].value) {
-    player1.hand == player1.hand.push(...arena);
+    player1.hand = [...player1.hand, ...arena]
     player2.hand = player2.hand;
     console.log(arena[0], arena[1]);
+    console.log(player1.hand, player2.hand);
     console.log("Player 1 wins");
-    playCard(player1.hand)
-    playCard(player2.hand)
   } else if (arena[0].value < arena[1].value) {
-    player1.hand == player1.hand.push(...arena);
-    player2.hand == player2.hand;
+    player2.hand = [...player2.hand,...arena]
+    player1.hand = player1.hand;
     console.log(arena[0], arena[1]);
+    console.log(player1.hand, player2.hand);
     console.log("Player 2 wins");
-    playCard(player1.hand)
-    playCard(player2.hand)
   } else if (arena[0].value == arena[1].value) {
     console.log(arena[0], arena[1]);
     console.log("We have a war");
-    //cardsDownWar(), cardsUpWar(),battlefieldWar(), reserveWar()
+    //cardsDownWar(), cardsUpWar(), battlefieldWar(), reserveWar();
+  }
+  arena = []
+  return player1.hand, player2.hand
+}
+//compareCards();
+
+
+function main() {
+  createDeck();
+  shuffle(deck);
+  //deal cards
+  for (let i = 0; i < 26; i++) {
+    player1.hand.push(deck[i]);
+  }
+  for (let i = 26; i < 52; i++) {
+    player2.hand.push(deck[i]);
+  }
+  flag = true;
+  while (player1.hand.length > 0 && player2.hand.length > 0) {
+    playCard(player1.hand);
+    playCard(player2.hand);
+    console.log(arena, player1.hand, player2.hand);
+    compareCards();
+    console.log(player1.hand, player2.hand);
+    console.log(player1.hand.length, player2.hand.length);
+    playCard(player1.hand);
+    playCard(player2.hand);
+    console.log(arena, player1.hand, player2.hand);
+    compareCards();
+    console.log(player1.hand, player2.hand);
+    console.log(player1.hand.length, player2.hand.length);
+      break
   }
 }
-compareCards();
-
-console.log(player1.hand, player2.hand);
-console.log(player1.hand.length, player2.hand.length)
+main();
 /*
-function keepRunning(){
-  while(player1.hand.length !== 0 || player2.hand.length !==0){
-    playCard(player1.hand), arena.pop()
-    playCard(player2.hand), arena.pop()
-    compareCards()
-  
-  }
-}
-keepRunning()
-*/
-
 //WAR
-//Deal war cards
 function cardsDownWar(card2) {
   let y = card2.splice(0, 3);
   console.log(y, card2);
@@ -141,12 +152,11 @@ function cardsUpWar(card3) {
   battlefield.push(y);
   return battlefield;
 }
-cardsDownWar(player2.hand);
-cardsDownWar(player1.hand);
 
-cardsUpWar(player1.hand);
-cardsUpWar(player2.hand);
-
+ cardsDownWar(player2.hand);
+    cardsDownWar(player1.hand);
+    cardsUpWar(player1.hand);
+    cardsUpWar(player2.hand);
 //Play war
 function battlefieldWar() {
   if (battlefield[0].value > battlefield[1].value) {
@@ -207,5 +217,11 @@ function gameReset() {
   deck = [];
   arena = [];
 }
-//note: add alert() to play again
 
+//note: add alert() to play again
+*/
+
+/*layer1.hand.length = true){
+    if (player1.hand.length == 0){flag = false}
+    else if (player2.hand.length == 0){flag = false}
+    break */
