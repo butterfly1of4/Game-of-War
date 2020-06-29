@@ -92,7 +92,7 @@ function playCard(card1) {
   arena.push(x);
   return arena;
 }
-//maybe war
+//War setup
 function maybeWar() {
   let p1 = player1.hand.shift();
   let p2 = player2.hand.shift();
@@ -103,9 +103,8 @@ function maybeWar() {
   battleReserve.push(p2);
   battleReserve.push(p1);
   battleReserve.push(p2);
-  return battlefield, battleReserve;
-}
-
+  return battlefield, battleReserve;}
+// War part 1
 function playWar(p1, p2) {
   console.log(battlefield.length, battleReserve.length);
   if (battlefield[0].value > battlefield[1].value) {
@@ -137,6 +136,7 @@ function playWar(p1, p2) {
   }
   return player1.hand, player2.hand;
 }
+// War part 2
 function playWarAgain(p1, p2) {
   for (let i = 0; i <= 2; i++) {
     if (battleReserve[i].value > battleReserve[i + 1].value) {
@@ -165,7 +165,7 @@ function playWarAgain(p1, p2) {
   }
   return player1.hand, player2.hand;
 }
-
+//Evaluate 
 function compareCards() {
   if (arena[0].value > arena[1].value) {
     player1.hand = [...player1.hand, ...arena];
@@ -190,10 +190,17 @@ function compareCards() {
   arena = [];
   return player1.hand, player2.hand;
 }
-
+//Game over?
 function winCheck() {
-  if 
+  if (player1.hand.length == 52 || player2.hand.length == 52) {
+    return false
+  } else if (player1.hand.length + player2.hand.length > 52){
+    return false
+  } else if (player1.hand.length > 52 || player2.hand.length> 52){
+    return false
+  }
 }
+
 function main() {
   createDeck();
   shuffle(deck);
@@ -205,7 +212,7 @@ function main() {
     player2.hand.push(deck[i]);
   }
 
-  while (player1.hand.length > 0 && player2.hand.length > 0) {
+  while ((player1.hand.length > 0 == true) && (player2.hand.length > 0 == true)) {
    introduce();
     playCard(player1.hand);
     playCard(player2.hand);
@@ -235,7 +242,6 @@ function gameReset() {
   arena = [];
 }
 
-//note: add alert() to play again
 */
 /*
 //WAR
