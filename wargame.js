@@ -84,80 +84,27 @@ function playCard(card1) {
   return arena;
 }
 
-//Compare cards
-function compareCards() {
-  if (arena[0].value > arena[1].value) {
-    player1.hand = [...player1.hand, ...arena]
-    player2.hand = player2.hand;
-    console.log(arena[0], arena[1]);
-    console.log(player1.hand, player2.hand);
-    console.log("Player 1 wins");
-  } else if (arena[0].value < arena[1].value) {
-    player2.hand = [...player2.hand,...arena]
-    player1.hand = player1.hand;
-    console.log(arena[0], arena[1]);
-    console.log(player1.hand, player2.hand);
-    console.log("Player 2 wins");
-  } else if (arena[0].value == arena[1].value) {
-    console.log(arena[0], arena[1]);
-    console.log("We have a war");
-    //cardsDownWar(), cardsUpWar(), battlefieldWar(), reserveWar();
-  }
-  arena = []
-  return player1.hand, player2.hand
-}
-//compareCards();
-
-
-function main() {
-  createDeck();
-  shuffle(deck);
-  //deal cards
-  for (let i = 0; i < 26; i++) {
-    player1.hand.push(deck[i]);
-  }
-  for (let i = 26; i < 52; i++) {
-    player2.hand.push(deck[i]);
-  }
-  flag = true;
-  while (player1.hand.length > 0 && player2.hand.length > 0) {
-    playCard(player1.hand);
-    playCard(player2.hand);
-    console.log(arena, player1.hand, player2.hand);
-    compareCards();
-    console.log(player1.hand, player2.hand);
-    console.log(player1.hand.length, player2.hand.length);
-    playCard(player1.hand);
-    playCard(player2.hand);
-    console.log(arena, player1.hand, player2.hand);
-    compareCards();
-    console.log(player1.hand, player2.hand);
-    console.log(player1.hand.length, player2.hand.length);
-      break
-  }
-}
-main();
-/*
 //WAR
 function cardsDownWar(card2) {
-  let y = card2.splice(0, 3);
+  let y = card2.slice(0, 3);
   console.log(y, card2);
-  battleReserve.push(...y);
+  battleReserve = [y];
   return battleReserve;
 }
 
 function cardsUpWar(card3) {
   let y = card3.shift();
   console.log(y, card3);
-  battlefield.push(y);
+  battlefield = [y];
   return battlefield;
 }
 
- cardsDownWar(player2.hand);
+    cardsDownWar(player2.hand);
     cardsDownWar(player1.hand);
     cardsUpWar(player1.hand);
     cardsUpWar(player2.hand);
 //Play war
+/*
 function battlefieldWar() {
   if (battlefield[0].value > battlefield[1].value) {
     console.log("The war is over. Player 1 wins");
@@ -200,7 +147,70 @@ function reserveWar() {
     }
   }
 }
+*/
+//Compare cards
+function compareCards() {
+  if (arena[0].value > arena[1].value) {
+    player1.hand = [...player1.hand, ...arena]
+    player2.hand = player2.hand;
+    console.log(arena[0], arena[1]);
+    console.log(player1.hand, player2.hand);
+    console.log("Player 1 wins");
+  } else if (arena[0].value < arena[1].value) {
+    player2.hand = [...player2.hand,...arena]
+    player1.hand = player1.hand;
+    console.log(arena[0], arena[1]);
+    console.log(player1.hand, player2.hand);
+    console.log("Player 2 wins");
+  } else if (arena[0].value == arena[1].value) {
+    console.log(arena[0], arena[1]);
+    console.log("We have a war");
+    cardsDownWar(), cardsUpWar(), battlefieldWar(), reserveWar();
+  }
+  arena = []
+  return player1.hand, player2.hand
+}
 
+
+//compareCards();
+function winCheck(){
+  let i = player1.hand.length
+  let j = player2.hand.length
+  let k = 52;
+  if (i + j < 52) {
+    console.log("too big")
+  } else if ( i == 52 || j == 52){
+    console.log ("52")
+  } else if (i == 0 || j == 0){
+    console.log("zero")
+  } else {
+    console.log(player1.hand, player2.hand);
+    console.log(player1.hand.length, player2.hand.length);
+  }
+}
+
+function main() {
+  createDeck();
+  shuffle(deck);
+  //deal cards
+  for (let i = 0; i < 26; i++) {
+    player1.hand.push(deck[i]);
+  }
+  for (let i = 26; i < 52; i++) {
+    player2.hand.push(deck[i]);
+  }
+
+  while (player1.hand.length > 0 && player2.hand.length > 0) {
+    playCard(player1.hand);
+    playCard(player2.hand);
+    console.log(arena, player1.hand, player2.hand);
+    compareCards();
+    winCheck()
+    
+  }
+}
+main();
+/*
 
 
 function playAgain() {
