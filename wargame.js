@@ -66,13 +66,13 @@ function shuffle(deck) {
 //shuffle(deck);
 
 //Deal
-/*
-for (let i = 0; i < 26; i++) {
-  player1.hand.push(deck[i]);
-}
-for (let i = 26; i < 52; i++) {
-  player2.hand.push(deck[i]);
-}*/
+
+// for (let i = 0; i < 26; i++) {
+//   player1.hand.push(deck[i]);
+// }
+// for (let i = 26; i < 52; i++) {
+//   player2.hand.push(deck[i]);
+// }
 //console.log(player1.hand);
 //console.log(player2.hand)
 //Loop
@@ -80,9 +80,7 @@ for (let i = 26; i < 52; i++) {
 function introduce() {
   let i = 0;
   console.log(
-    `Welcome to round ${
-      i += 1
-    } of the game. The deck contains ${deck.length} cards. Player 1 has ${player1.hand.length} cards; Player 2 has ${player2.hand.length} cards. `
+    `Welcome to round ${i += 1} of the game. The deck contains ${deck.length} cards. Player 1 has ${player1.hand.length} cards; Player 2 has ${player2.hand.length} cards. `
   );
 }
 
@@ -92,6 +90,7 @@ function playCard(card1) {
   arena.push(x);
   return arena;
 }
+
 //War setup
 function maybeWar() {
   let p1 = player1.hand.shift();
@@ -223,7 +222,6 @@ function main() {
 }
 main();
 /*
-
 
 function playAgain() {
   let again;
