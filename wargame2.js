@@ -89,7 +89,7 @@ console.log(arena, player1.hand,player2.hand)
   function maybeWar() {
     p1 = player1.hand.splice(0,1);
     p2 = player2.hand.splice(0,1);
-    battlefield.push(p1, p2);
+    battlefield = [...p1, ...p2];
     console.log(player1.hand, player2.hand, battlefield, arena)
     p1 = player1.hand.splice(0,3);
     p2 = player2.hand.splice(0,3);
@@ -108,9 +108,10 @@ console.log(arena, player1.hand,player2.hand)
   function playWar(p1, p2) {
     console.log(battlefield.length, battleReserve.length, arena.length);
     warHand =  [...arena, ...battleReserve, ...battlefield]
-    console.log(warHand)
+    console.log(warHand, warHand.length)
     console.log(player2.hand,player2.hand)
     if (battlefield[0].value > battlefield[1].value) {
+      console.log(battlefield[0],battlefield[1])
       p1>p2
       player1.hand = [
         ...player1.hand, ...warHand

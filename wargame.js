@@ -93,15 +93,22 @@ function playCard(card1) {
 
 //War setup
 function maybeWar() {
-  let p1 = player1.hand.shift();
-  let p2 = player2.hand.shift();
-  battlefield.push(p1, p2);
-  battleReserve.push(p1);
-  battleReserve.push(p2);
-  battleReserve.push(p1);
-  battleReserve.push(p2);
-  battleReserve.push(p1);
-  battleReserve.push(p2);
+  p1 = player1.hand.splice(0,1);
+    p2 = player2.hand.splice(0,1);
+    battlefield = [...p1, ...p2];
+    console.log(player1.hand, player2.hand, battlefield, arena)
+    p1 = player1.hand.splice(0,3);
+    p2 = player2.hand.splice(0,3);
+    battleReserve.push(p1, p2)
+  // let p1 = player1.hand.shift();
+  // let p2 = player2.hand.shift();
+  // battlefield.push(p1, p2);
+  // battleReserve.push(p1);
+  // battleReserve.push(p2);
+  // battleReserve.push(p1);
+  // battleReserve.push(p2);
+  // battleReserve.push(p1);
+  // battleReserve.push(p2);
   return battlefield, battleReserve;}
 // War part 1
 function playWar(p1, p2) {
