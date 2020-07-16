@@ -92,32 +92,30 @@ console.log(arena, player1.hand,player2.hand)
     battlefield = [...p1, ...p2];
     console.log(player1.hand, player2.hand, battlefield, arena)
     p1 = player1.hand.splice(0,3);
+    console.log(p1)
     p2 = player2.hand.splice(0,3);
     battleReserve.push(p1, p2)
-    // battleReserve.push(p1);
-    // battleReserve.push(p2);
-    // battleReserve.push(p1);
-    // battleReserve.push(p2);
-    // battleReserve.push(p1);
-    // battleReserve.push(p2);
-    console.log(battlefield,battleReserve,player1.hand, player2.hand)
-    return battlefield, battleReserve;}
-   
   
+    console.log(arena,battlefield,battleReserve[0],battleReserve[1],player1.hand, player2.hand)
+    return battlefield, battleReserve;}
+  //   warHand =  [...arena, ...battleReserve, ...battlefield]
+  // console.log(warHand)
   // War part 1
+
   function playWar(p1, p2) {
-    console.log(battlefield.length, battleReserve.length, arena.length);
-    warHand =  [...arena, ...battleReserve, ...battlefield]
-    console.log(warHand, warHand.length)
+    console.log(battlefield.length, battleReserve[0].length,battleReserve[1].length, arena.length);
+    
+    // console.log(warHand, warHand.length)
     console.log(player2.hand,player2.hand)
     if (battlefield[0].value > battlefield[1].value) {
       console.log(battlefield[0],battlefield[1])
       p1>p2
       player1.hand = [
-        ...player1.hand, ...warHand
-        // ...arena,
-        // ...battlefield,
-        // ...battleReserve,
+        ...player1.hand, //...warHand
+        ...arena,
+        ...battlefield,
+        ...battleReserve[0],
+        ...battleReserve[1]
       ];
       player2.hand 
     //   = player2.hand
@@ -127,10 +125,11 @@ console.log(arena, player1.hand,player2.hand)
     } else if (battlefield[0].value < battlefield[1].value) {
       p2 > p1
       player2.hand = [
-        ...player2.hand, ...warHand
-        // ...arena,
-        // ...battlefield,
-        // ...battleReserve,
+        ...player2.hand, //...warHand
+        ...arena,
+        ...battlefield,
+        ...battleReserve[0],
+        ...battleReserve[1]
       ];
       player1.hand 
     //   = player1.hand;

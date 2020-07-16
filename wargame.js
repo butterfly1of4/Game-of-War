@@ -118,7 +118,8 @@ function playWar(p1, p2) {
       ...player1.hand,
       ...arena,
       ...battlefield,
-      ...battleReserve,
+      ...battleReserve[0],
+      ...battleReserve[1]
     ];
     player2.hand = player2.hand;
     p1>p2
@@ -130,7 +131,8 @@ function playWar(p1, p2) {
       ...player2.hand,
       ...arena,
       ...battlefield,
-      ...battleReserve,
+      ...battleReserve[0],
+      ...battleReserve[1]
     ];
     player1.hand = player1.hand;
     p2 > p1
@@ -225,6 +227,7 @@ function main() {
     console.log(arena, player1.hand, player2.hand);
     compareCards();
     winCheck();
+    break
   }
 }
 main();
