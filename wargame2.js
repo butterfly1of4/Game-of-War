@@ -164,13 +164,13 @@ function playWarAgain(p1, p2) {
   p2 = battleReserve[1];
   console.log(p1,p2)
   for (let i = 0; i <= 3; i++) {
-    console.log((p1[i].value),(p2[i + 1].value))
-    if (p1[i].value === p2[i + 1].value) {
+    console.log((p1[i].value),(p2[i].value))
+    if (p1[i].value === p2[i].value) {
       i += 1;
     }
-    else if (p1[i].value > p2[i + 1].value) {
+    else if (p1[i].value > p2[i].value) {
       console.log("Player 1 wins. Resume the game");
-      console.log(p1[i], p2[i + 1]);
+      console.log(p1[i], p2[i]);
 
       player1.hand = [
         ...player1.hand,
@@ -183,9 +183,9 @@ function playWarAgain(p1, p2) {
       // = player2.hand;
       console.log(player1.hand.length, player2.hand.length)
       break
-    } else if (p1[i].value < p2[i + 1].value) {
+    } else if (p1[i].value < p2[i].value) {
       console.log("Player 2 wins. Resume the game");
-      console.log(p1[i], p2[i + 1]);
+      console.log(p1[i], p2[i]);
 
       player2.hand = [
         ...player2.hand,
