@@ -108,7 +108,8 @@ function maybeWar() {
 }
 
 
-let validHand = playwar()
+let validHand = ''
+
 function validWar(p1,p2){
   if (validHand===true){
     if ( p1.hand.length < 4){
@@ -122,19 +123,50 @@ function validWar(p1,p2){
       console.log("Player2 is out of cards, player 2 wins")
     };
   if (validHand===false){
-      break;
+
   }
 }}
+validWar()
 // War part 1
 
 function playWar(p1, p2) {
-  console.log(
-    battlefield.length,
-    battleReserve[0].length,
-    battleReserve[1].length,
-    arena.length
-  );
+  
+    console.log(battlefield.length, battleReserve.length)
+    if (battlefield[0].value > battlefield[1].value) {
+      player1.hand = [
+        ...player1.hand,
+        ...arena,
+        ...battlefield,
+        ...battleReserve[0],
+        ...battleReserve[1],
+      ];
+      player2.hand = player2.hand;
+      p1 > p2;
+      console.log(battlefield[0], battlefield[1]);
+      console.log(player1.hand, player2.hand);
+      console.log("war over. player1 wins");
+    } else if (battlefield[0].value < battlefield[1].value) {
+      player2.hand = [
+        ...player2.hand,
+        ...arena,
+        ...battlefield,
+        ...battleReserve[0],
+        ...battleReserve[1],
+      ];
+      player1.hand = player1.hand;
+      p2 > p1;
+      console.log(battlefield[0], battlefield[1]);
+      console.log(player1.hand, player2.hand);
+      console.log("war over. player2 wins");
+    } else if (p1 === p2){
+      playWarAgain()
+      console.log("no one has won, move on to the next arena");
+    } else {
+      console.log("resume game")
+    }
+    return player1.hand, player2.hand;
   }
+  
 
 
 maybeWar();

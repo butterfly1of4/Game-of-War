@@ -107,6 +107,26 @@ function maybeWar() {
   battleReserve.push(p1, p2);
   return battlefield, battleReserve;
 }
+
+//Valid war check
+let validHand = ''
+
+function validWar(p1,p2){
+  if (validHand===true){
+    if ( p1.hand.length < 4){
+      p1.hand.slice(...p1.hand)
+      p2.hand.splice(...p1.hand)
+      console.length("Player 1 is out of cards, player 2 wins")
+    }
+    else if (p2.hand.length < 4) {
+      p2.hand.slice(...p2.hand)
+      p1.hand.splice(...p2.hand)
+      console.log("Player2 is out of cards, player 2 wins")
+    };
+  if (validHand===false){
+
+  }
+}}
 // War part 1
 function playWar(p1, p2) {
   console.log(battlefield.length, battleReserve.length);
