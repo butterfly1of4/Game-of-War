@@ -77,11 +77,11 @@ function shuffle(deck) {
 //console.log(player1.hand);
 //console.log(player2.hand)
 //Loop
-
+let i = 1;
 function introduce() {
-  let i = 0;
+  
   console.log(
-    `Welcome to round ${(i += 1)} of the game. The deck contains ${
+    `Welcome to round ${i} of the game. The deck contains ${
       deck.length
     } cards. Player 1 has ${player1.hand.length} cards; Player 2 has ${
       player2.hand.length
@@ -98,6 +98,7 @@ function playCard(card1) {
 
 //War setup
 function maybeWar() {
+
   p1 = player1.hand.splice(0, 1);
   p2 = player2.hand.splice(0, 1);
   battlefield = [...p1, ...p2];
@@ -116,12 +117,15 @@ function validWar(p1,p2){
     if ( p1.hand.length < 4){
       p1.hand.slice(...p1.hand)
       p2.hand.splice(...p1.hand)
+      winCheck()
       console.length("Player 1 is out of cards, player 2 wins")
     }
+
     else if (p2.hand.length < 4) {
       p2.hand.slice(...p2.hand)
       p1.hand.splice(...p2.hand)
       console.log("Player2 is out of cards, player 2 wins")
+      winCheck()
     };
   if (validHand===false){
 
@@ -233,6 +237,7 @@ function compareCards() {
     console.log(arena[0], arena[1]);
     console.log("We have a war");
     console.log(player1.hand, player2.hand);
+    validWar()
     maybeWar();
     playWar();
     playWarAgain;
@@ -269,6 +274,7 @@ function main() {
     console.log(arena, player1.hand, player2.hand);
     compareCards();
     winCheck();
+    i+=1
     // break;
   }
 }
