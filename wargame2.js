@@ -103,15 +103,9 @@ function maybeWar() {
   p2 = player2.hand.splice(0, 1);
   battlefield = [...p1, ...p2];
   p1R = player1.hand.splice(0, 3);
-  console.log(p1R)
-  
   p2R= player2.hand.splice(0, 3);
-  console.log(p2R)
   battleReserve = [[...p1R], [...p2R]]
-  console.log(battleReserve[0])
-  console.log(battleReserve[1])
   console.log(battleReserve)
-
   return battlefield, battleReserve;
 
 }

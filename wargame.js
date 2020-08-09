@@ -103,12 +103,12 @@ function maybeWar() {
   p2 = player2.hand.splice(0, 1);
   battlefield = [...p1, ...p2];
   console.log(player1.hand, player2.hand, battlefield, arena);
-  p1 = player1.hand.splice(0, 3);
-  p2 = player2.hand.splice(0, 3);
-  battleReserve.push(p1, p2);
+  p1R = player1.hand.splice(0, 3);
+  p2R= player2.hand.splice(0, 3);
+  battleReserve = [[...p1R], [...p2R]]
+  console.log(battleReserve)
   return battlefield, battleReserve;
 }
-
 //Valid war check
 let validHand = ''
 
