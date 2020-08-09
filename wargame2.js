@@ -33,7 +33,7 @@ let card = {};
 let shuffledDDeck = [];
 let arena = [];
 let battlefield = [];
-let battleReserve = [];
+let battleReserve = [[],[]];
 
 //Create deck
 function createDeck() {
@@ -103,8 +103,15 @@ function maybeWar() {
   p2 = player2.hand.splice(0, 1);
   battlefield = [...p1, ...p2];
   p1R = player1.hand.splice(0, 3);
+  console.log(p1R)
+  
   p2R= player2.hand.splice(0, 3);
-  battleReserve.push(p1R, p2R);
+  console.log(p2R)
+  battleReserve = [[...p1R], [...p2R]]
+  console.log(battleReserve[0])
+  console.log(battleReserve[1])
+  console.log(battleReserve)
+
   return battlefield, battleReserve;
 
 }
@@ -149,46 +156,46 @@ function validWar(p1,p2){
 // }}
 
 
-// War part 1
-function playWar(p1, p2) {
-  console.log(battlefield.length, battleReserve.length);
-  if (battlefield[0].value > battlefield[1].value) {
-    player1.hand = [
-      ...player1.hand,
-      ...arena,
-      ...battlefield,
-      ...battleReserve[0],
-      ...battleReserve[1]
-    ];
-    console.log(player1.hand, player2.hand, arena,battleReserve[0],battleReserve[1],battlefield)
-    player2.hand = player2.hand;
-    p1 > p2;
-    console.log(battlefield[0], battlefield[1]);
-    console.log(player1.hand, player2.hand);
-    console.log("war over. player1 wins");
-  } else if (battlefield[0].value < battlefield[1].value) {
-    player2.hand = [
-      ...player2.hand,
-      ...arena,
-      ...battlefield,
-      ...battleReserve[0],
-      ...battleReserve[1]
-    ];
-    console.log(player2.hand, player1.hand, arena, battleReserve[0],battleReserve[1],battlefield)
+// // War part 1
+// function playWar(p1, p2) {
+//   console.log(battlefield.length, battleReserve.length);
+//   if (battlefield[0].value > battlefield[1].value) {
+//     player1.hand = [
+//       ...player1.hand,
+//       ...arena,
+//       ...battlefield,
+//       ...battleReserve[0],
+//       ...battleReserve[1]
+//     ];
+//     console.log(player1.hand, player2.hand, arena,battleReserve[0],battleReserve[1],battlefield)
+//     player2.hand = player2.hand;
+//     p1 > p2;
+//     console.log(battlefield[0], battlefield[1]);
+//     console.log(player1.hand, player2.hand);
+//     console.log("war over. player1 wins");
+//   } else if (battlefield[0].value < battlefield[1].value) {
+//     player2.hand = [
+//       ...player2.hand,
+//       ...arena,
+//       ...battlefield,
+//       ...battleReserve[0],
+//       ...battleReserve[1]
+//     ];
+//     console.log(player2.hand, player1.hand, arena, battleReserve[0],battleReserve[1],battlefield)
 
-    player1.hand = player1.hand;
-    p2 > p1;
-    console.log(battlefield[0], battlefield[1]);
-    console.log(player1.hand, player2.hand);
-    console.log("war over. player2 wins");
-  } else if (battlefield[0].value === battlefield[1].value){
-    playWarAgain()
-    console.log("no one has won, move on to the next arena");
-  } else {
-    console.log("resume game")
-  }
-  return player1.hand, player2.hand;
-}
+//     player1.hand = player1.hand;
+//     p2 > p1;
+//     console.log(battlefield[0], battlefield[1]);
+//     console.log(player1.hand, player2.hand);
+//     console.log("war over. player2 wins");
+//   } else if (battlefield[0].value === battlefield[1].value){
+//     playWarAgain()
+//     console.log("no one has won, move on to the next arena");
+//   } else {
+//     console.log("resume game")
+//   }
+//   return player1.hand, player2.hand;
+// }
 
 // War part 2
 function playWarAgain(p1, p2) {
@@ -295,7 +302,7 @@ function main() {
     introduce();
     playCard(player1.hand);
     playCard(player2.hand);
-    console.log(arena, player1.hand, player2.hand);
+    console.log(arena);
     compareCards();
     winCheck();
     i+=1
