@@ -33,7 +33,7 @@ let card = {};
 let shuffledDDeck = [];
 let arena = [];
 let battlefield = [];
-let battleReserve = [];
+let battleReserve = [[],[]];
 
 //Create deck
 function createDeck() {
@@ -102,46 +102,66 @@ function maybeWar() {
   p1 = player1.hand.splice(0, 1);
   p2 = player2.hand.splice(0, 1);
   battlefield = [...p1, ...p2];
-  console.log(player1.hand, player2.hand, battlefield, arena);
   p1R = player1.hand.splice(0, 3);
   p2R= player2.hand.splice(0, 3);
   battleReserve = [[...p1R], [...p2R]]
   console.log(battleReserve)
   return battlefield, battleReserve;
+
 }
-//Valid war check
-let validHand = ''
+console.log(player1.hand, player2.hand, battlefield, arena, battleReserve);
+
+// //Valid war check
+
 
 function validWar(p1,p2){
-  if (validHand===true){
-    if ( p1.hand.length < 4){
-      p1.hand.slice(...p1.hand)
-      p2.hand.splice(...p1.hand)
-      winCheck()
-      console.length("Player 1 is out of cards, player 2 wins")
-    }
+  arena[0].value === arena[1].value
+      if (player1.hand.length <4){
+        winCheck()
+        console.log(player1.hand, player2.hand)
+      }
+      else if (player2.hand.length <4){
+       winCheck()
+        console.log(player1.hand, player2.hand)
+      }
+}
+// let validHand = ''
 
-    else if (p2.hand.length < 4) {
-      p2.hand.slice(...p2.hand)
-      p1.hand.splice(...p2.hand)
-      console.log("Player2 is out of cards, player 2 wins")
-      winCheck()
-    };
-  if (validHand===false){
+// function validWar(p1,p2){
+//   if (validHand===true){
+//     if ( p1.hand.length < 4){
+//       p1.hand.splice(...p1.hand)
+//       p2.hand = ([p2.hand] + [...p1.hand])
+//       winCheck()
+//       console.length("Player 1 is out of cards, player 2 wins")
+//       // break
+//     }
 
-  }
-}}
+//     else if (p2.hand.length < 4) {
+//       p2.hand.splice(...p2.hand)
+//       p1.hand.splice(...p2.hand)
+//       console.log("Player2 is out of cards, player 2 wins")
+//       winCheck()
+//       // break
+//     };
+//   if (validHand===false){
+
+//   }
+// }}
+
+
 // War part 1
 function playWar(p1, p2) {
-  console.log(battlefield.length, battleReserve.length);
+  console.log(battlefield.length, (battleReserve[0].length + battleReserve[1].length),player1.hand.length, player2.hand.length,arena.length)
   if (battlefield[0].value > battlefield[1].value) {
     player1.hand = [
       ...player1.hand,
       ...arena,
       ...battlefield,
       ...battleReserve[0],
-      ...battleReserve[1],
+      ...battleReserve[1]
     ];
+    console.log(player1.hand, player2.hand, arena,battleReserve[0],battleReserve[1],battlefield)
     player2.hand = player2.hand;
     p1 > p2;
     console.log(battlefield[0], battlefield[1]);
@@ -153,14 +173,16 @@ function playWar(p1, p2) {
       ...arena,
       ...battlefield,
       ...battleReserve[0],
-      ...battleReserve[1],
+      ...battleReserve[1]
     ];
+    console.log(player2.hand, player1.hand, arena, battleReserve[0],battleReserve[1],battlefield)
+
     player1.hand = player1.hand;
     p2 > p1;
     console.log(battlefield[0], battlefield[1]);
     console.log(player1.hand, player2.hand);
     console.log("war over. player2 wins");
-  } else if (p1 === p2){
+  } else if (battlefield[0].value === battlefield[1].value){
     playWarAgain()
     console.log("no one has won, move on to the next arena");
   } else {
@@ -171,7 +193,7 @@ function playWar(p1, p2) {
 
 // War part 2
 function playWarAgain(p1, p2) {
-  p1 = battleReserve[0];
+  p1 = battleReserve[0];  
   p2 = battleReserve[1];
   console.log(p1,p2)
   for (let i = 0; i <= 3; i++) {
@@ -247,9 +269,12 @@ function compareCards() {
 }
 //Game over?
 function winCheck() {
-  if (player1.hand.length == 52 || player2.hand.length == 52) {
+  if (player1.hand.length === 52 || player2.hand.length === 52) {
     return false;
-  } else if (player1.hand.length + player2.hand.length > 52) {
+  } else if (player1.hand.length === 0 || player2.hand.length ===0){
+    return false
+  }
+  else if (player1.hand.length + player2.hand.length > 52) {
     return false;
   } else if (player1.hand.length > 52 || player2.hand.length > 52) {
     return false;
@@ -271,7 +296,7 @@ function main() {
     introduce();
     playCard(player1.hand);
     playCard(player2.hand);
-    console.log(arena, player1.hand, player2.hand);
+    console.log(arena);
     compareCards();
     winCheck();
     i+=1
