@@ -79,4 +79,4 @@ function playWar(p1, p2) {
 function winCheck() {}
 ```
 
-The game is over when 1 player has 52 cards, and the other player has 0.
+The game is over when 1 player has 52 cards, and the other player has 0. To play again, refresh the browser.
