@@ -1,82 +1,82 @@
 # Game-of-War
 
-A 2 player card game using all 52 cards. Each player gets half the deck. The players flip cards simulatneously and compare numbers. Highest number wins. If Player 1 & Player 2's numbers match, War is declared. For war, each player deals three cards down and one card up. The higher number of the overtuned cards wins. In the event of a tie, the next card is flipped, and so on until there is a winner. Winner takes all the cards and adds them to the bottom of their deck.
+This is 2 player card game using all 52 cards. Each player gets half the deck. The players flip cards simulatneously and compare numbers. Highest number wins. If Player 1 & Player 2's numbers match, War is declared. For war, each player deals three cards down and one card up. The higher number of the overtuned cards wins. In the event of a tie, the next card is flipped, and so on until there is a winner. Winner takes all the cards and adds them to the bottom of their deck.
 
-##Start game
--open [https://github.com/butterfly1of4/Game-of-War/blob/master/index.html]: https://github.com/butterfly1of4/Game-of-War/blob/master/index.html
+## Start game
+
+To start the game, open <https://github.com/butterfly1of4/Game-of-War/blob/master/index.html>. This application requires a working knowledge of Javascript and a terminal. There is no installation required, simply open a terminal. The program will run on its own, and upon refresh.
+
+## Setup:
 
 ```
+function introduce()
 startGame() return Boolean
 
 ```
 
-##Create Deck:
+### Create and Shuffle deck
 
-`const Deck = []`,
+```
+const Deck = [],
+function createDeck(){}
+function shuffle(deck)[]
+```
 
-##Declare players:
+### Declare players:
 
-- create 2 players
+Player1: player1
+Player2: player2
+Deal cards: 
+```
+ for (let i = 0; i < 26; i++) {
+   player1.hand.push(deck[i]);
+ }
+ for (let i = 26; i < 52; i++) {
+   player2.hand.push(deck[i]);
+}
+```
 
-````
-const player = {
-    hand= []
-}```
-```setPlayers()```
+### Round:
 
-##Shuffle:
+Begin every round by dealing 2 cards to the arena array:
 
-```shuffle()```
+```function playCard(card1) {
+  let x = card1.shift();
+  arena.push(x);
+  return arena;
+}
+```
 
-##Deal
-```deal()```
-26 cards to each player
+The cards are evaluated, and it's determinded whether there will be a war, or if the game will resume normally: 
+```
+function compareCards() {}
 
-##Play:
-```playHand()```=
-```flipCards()```
--players flip the first card from hand
+```
+### War
+If the cards in the arena match and a war is declared, a total of 8 cards are dealt between the 2 players. 
 
-Evaluate:
-```evaluateCards()```
-For:
-*one player > other:
-    player ==  winner
-    winner takes cards
-    ``` addCardsToHand()```
+Deal: 
+```
+function maybeWar() {
+     battlefield = [...p1, ...p2]
+    battleReserve = [[...p1R], [...p2R]]
+```
+Check to see if each player has enough cards to continue: 
+```
+validWar() {
+}
+```
+If yes, round 1 of war starts:
+```
+function playWar(p1, p2) {
+    battlefield}
+ iIf the value of cards in battlefield match: 
+ function playWarAgain(p1, p2) {
+    battleReserve = [[...p1R], [...p2R]]}
+```
+### Win Check: 
+```
+function winCheck() {}
+```
 
-    if the cards match:
-    ```declareWar()```
-
-    if a player is out of cards
-    ```gameEnds()```
-
-    and the winner is declared,
-    and another game may be initiated
-    ```playAgain()```
-        resume play
-*same
-    War is declared
-
-
-
-If War is declared
-```declareWar()```
-
-deal 3 cards face down
-```dealFaceDown()```
-and one face up
-```flipCard()```
-cards are compared
-```evaluateCards()```
-if there's a winner, cards are added to their deck
-```addCardsToDeck()```
-game continues as usual
-
-```playHand()```
-
-if there is a tie, the first face down card is flipped
-```flipFaceDown()```
-```evaluateCards()```
-if a tie remains, same 2 functions.
-````
+The game is over when 1 player has 52 cards, and the other player has 0.

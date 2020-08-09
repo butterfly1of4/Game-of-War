@@ -125,30 +125,6 @@ function validWar(p1,p2){
         console.log(player1.hand, player2.hand)
       }
 }
-// let validHand = ''
-
-// function validWar(p1,p2){
-//   if (validHand===true){
-//     if ( p1.hand.length < 4){
-//       p1.hand.splice(...p1.hand)
-//       p2.hand = ([p2.hand] + [...p1.hand])
-//       winCheck()
-//       console.length("Player 1 is out of cards, player 2 wins")
-//       // break
-//     }
-
-//     else if (p2.hand.length < 4) {
-//       p2.hand.splice(...p2.hand)
-//       p1.hand.splice(...p2.hand)
-//       console.log("Player2 is out of cards, player 2 wins")
-//       winCheck()
-//       // break
-//     };
-//   if (validHand===false){
-
-//   }
-// }}
-
 
 // War part 1
 function playWar(p1, p2) {
@@ -323,77 +299,4 @@ function gameReset() {
   arena = [];
 }
 
-}
 */
-//Compare cards
-/*layer1.hand.length = true){
-    if (player1.hand.length == 0){flag = false}
-    else if (player2.hand.length == 0){flag = false}
-    break */
-
-// function playWarAgain(p1, p2) {
-//   p1 = battleReserve[0];
-//   p2 = battleReserve[1];
-//   console.l0g(p1,p2)
-//   for (let i = 0; i <= 2; i++) {
-//     if (p1[i].value > p2[i + 1].value) {
-//       console.log("Player 1 wins. Resume the game");
-//       console.log(p1[i], p2[i + 1]);
-
-//       player1.hand = [
-//         ...player1.hand,
-//         ...arena,
-//         ...battlefield,
-//         ...battleReserve[0],
-//         ...battleReserve[1],
-//       ];
-//       player2.hand = player2.hand;
-//     } else if (p1[i].value < p2[i + 1].value) {
-//       console.log("Player 2 wins. Resume the game");
-//       console.log(p1[i], p2[i + 1]);
-//       player2.hand = [
-//         ...player2.hand,
-//         ...arena,
-//         ...battlefield,
-//         ...battleReserve[0],
-//         ...battleReserve[1],
-//       ];
-//       player1.hand = player1.hand;
-//     } else if (p1[i].value == p2[i + 1].value) {
-//       i += 1;
-//     }
-//   }
-//   return player1.hand, player2.hand;
-// }
-
-// function playWarAgain(p1, p2) {
-//   p1 = battleReserve[0];
-//   p2 = battleReserve[1];
-//   console.l0g(p1,p2)
-//   for (let i = 0; i <= 2; i++) {
-//     if (battleReserve[i].value > battleReserve[i + 1].value) {
-//       console.log("Player 1 wins. Resume the game");
-//       console.log(battleReserve[i], battleReserve[i + 1]);
-//       player1.hand = [
-//         ...player1.hand,
-//         ...arena,
-//         ...battlefield,
-//         ...battleReserve,
-//       ];
-//       player2.hand = player2.hand;
-//     } else if (battleReserve[i].value < battleReserve[i + 1].value) {
-//       console.log("Player 2 wins. Resume the game");
-//       console.log(battleReserve[i], battleReserve[i + 1]);
-//       player2.hand = [
-//         ...player2.hand,
-//         ...arena,
-//         ...battlefield,
-//         ...battleReserve,
-//       ];
-//       player1.hand = player1.hand;
-//     } else if (battleReserve[i].value == battleReserve[i + 1].value) {
-//       i += 1;
-//     }
-//   }
-//   return player1.hand, player2.hand;
-// }
